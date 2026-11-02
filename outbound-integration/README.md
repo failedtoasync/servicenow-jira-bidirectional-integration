@@ -135,3 +135,6 @@ Outbound testing covered automatic Jira issue creation for qualifying P1 Critica
 
 ## Folder Index
 
+- [Business Rules](business-rules/)
+- [Script Include](script-include/)
+- [UI Action](ui-action/)
