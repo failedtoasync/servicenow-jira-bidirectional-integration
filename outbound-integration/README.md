@@ -35,19 +35,24 @@ Two Business Rules handle automatic Jira issue creation and synchronization of e
 
 Automatically creates a Jira issue when a qualifying Software Incident with Critical (P1) or High (P2) priority is inserted or updated and does not already have a Jira Issue Key. It stores the returned key on the Incident after successful creation.
 
-[View Business Rule Documentation](business-rules/create-jira-issue-high-priority.md)
-
 **Update Jira Issue:**
 
 Updates the existing Jira issue when the Short Description, Description, or Priority of a linked Software Incident changes. It uses the stored Jira Issue Key to identify the corresponding issue.
 
-[View Business Rule Documentation](business-rules/update-jira-issue.md)
+**View Business Rule Scripts:**
+
+- [Create Jira Issue - High Priority](business-rules/create-jira-issue-high-priority.js)
+- [Update Jira Issue](business-rules/update-jira-issue.js)
+
 
 ### UI Action
 
 The **Create Jira Issue** UI Action provides a manual option to create Jira issues for qualifying Software Incidents with Moderate (P3) or Low (P4) priority. It appears as a form button when the Incident meets the configured conditions and does not already have a Jira Issue Key. The UI Action calls the shared `JiraIncidentIntegration` Script Include to create the Jira issue, stores the returned Jira Issue Key on the Incident after successful creation, and records success or failure feedback in the Incident work notes.
 
-[View UI Action Documentation](ui-actions/create-jira-issue.md)
+**View UI Action Script:**
+
+[Create Jira Issue](ui-action/create-jira-issue.js)
+
 
 ### Script Include
 
@@ -69,9 +74,10 @@ An HTTP `204` response indicates a successful update. The method logs the result
 
 Both methods use `try/catch` error handling and return structured results to their calling components. The Business Rules and UI Action use these results to store the Jira Issue Key where applicable and record execution feedback in the Incident work notes.
 
-**View Script Include:**
+**View UI Action Script:**
 
-[JiraIncidentIntegration.js](script-include/JiraIncidentIntegration.js)
+[Create Jira Issue](ui-action/create-jira-issue.js)
+
 
 ### REST Message and Methods
 
