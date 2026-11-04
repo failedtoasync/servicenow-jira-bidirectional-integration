@@ -10,6 +10,17 @@ This project implements a bidirectional integration between ServiceNow and Jira 
 - **REST Integration:** REST Messages, `sn_ws.RESTMessageV2`, Jira Cloud REST API v3, Webhooks
 - **Security:** Basic Authentication, HMAC-SHA256
 
+## Table of Contents
+
+1. [Business Scenario & Problem Statement](#business-scenario--problem-statement)
+2. [Project Objectives](#project-objectives)
+3. [Architecture Diagram](#architecture-diagram)
+4. [Outbound Integration Workflow](#outbound-integration-workflow)
+5. [Inbound Integration Workflow](#inbound-integration-workflow)
+6. [Authentication & Webhook Security](#authentication--webhook-security)
+7. [Testing & Verification](#testing--verification)
+8. [Repository File Index](#repository-file-index)
+
 ## Business Scenario & Problem Statement
 
 ServiceNow is used to manage IT Incidents, while Jira Cloud is used to track related development work. When an Incident requires further investigation or a fix through Jira, the two platforms need a reliable way to associate their records and exchange relevant updates.
@@ -66,11 +77,15 @@ The outbound workflow connects ServiceNow Software Incidents with Jira Cloud by 
 
 Success and failure information is recorded in the Incident work notes, and integration errors are logged for troubleshooting.
 
+See [Outbound Integration](outbound-integration/README.md) for implementation details.
+
 ## Inbound Integration Workflow
 
 The inbound workflow processes Jira issue update webhooks to synchronize supported Jira statuses with the related ServiceNow Incident. Incoming requests are validated using HMAC-SHA256 signature verification before the payload is processed, and the Jira Issue Key is used to identify the corresponding Incident.
 
 Supported statuses are mapped to ServiceNow Incident states, while the Jira `Done` status is intentionally excluded from automatic state mapping to avoid an unsupported resolution transition.
+
+See [Inbound Integration](inbound-integration/README.md) for implementation details.
 
 ## Authentication & Webhook Security
 
@@ -81,4 +96,15 @@ The integration uses Basic Authentication for outbound ServiceNow-to-Jira REST r
 The integration was tested across outbound Jira issue creation, updates to selected fields, inbound webhook processing, and ServiceNow Incident state synchronization. Testing also covered webhook signature validation, error handling, and supported status mappings.
 
 The verification process included testing both successful operations and failure scenarios to assess the integration’s behavior under different conditions.
+
+See [Testing](testing/README.md) for detailed testing scenarios and results.
+
+## Repository File Index
+
+The repository is organized by integration direction and supporting resources. Each folder contains the relevant implementation documentation and supporting materials.
+
+- [**Outbound Integration**](outbound-integration/README.md) — Business Rules, UI Action, Script Include, REST Message configuration, and outbound data mapping.
+- [**Inbound Integration**](inbound-integration/README.md) — Scripted REST API, webhook processing, HMAC-SHA256 validation, and Incident status synchronization.
+- [**Screenshots**](screenshots/) — Screenshots of Jira issue creation, updates, status synchronization, and integration logs.
+- [**Testing**](testing/README.md) — Testing scenarios, validation results, and links to supporting screenshots.
 
