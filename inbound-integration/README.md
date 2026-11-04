@@ -50,3 +50,7 @@ The field is shared by both integration directions and is documented in the [Out
 ## Inbound Testing
 
 Inbound testing covered receiving Jira issue-update webhooks, validating HMAC signatures, identifying the corresponding ServiceNow Incidents using Jira Issue Keys, and synchronizing supported Jira status changes with the Incident State.
+
+See [Testing](../testing/README.md).
+
+
