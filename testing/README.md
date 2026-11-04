@@ -10,13 +10,13 @@ Both paths used the `JiraIncidentIntegration` Script Include and `Create Jira Is
 
 **Automatic Creation — Business Rule**
 
-[Incident creation and Jira Issue Key](screenshots/incident-creation-business-rule.png)
-[Jira issue creation and ServiceNow logs](screenshots/jira-issue-creation-business-rule.png)
+[Incident with Jira Issue Key and Work Notes](../screenshots/incident-creation-business-rule.png)
+[Jira Issue Created by Business Rule](../screenshots/jira-issue-creation-business-rule.png)
 
 **Manual Creation — UI Action**
 
-[Software Incident with Create Jira Issue UI Action](screenshots/manual-creation-ui-action.png)
-[Jira issue created through UI Action](screenshots/jira-issue-creation-ui-action.png)
+[Incident with Create Jira Issue Button](../screenshots/manual-creation-ui-action.png)
+[Jira Issue Created through UI Action](../screenshots/jira-issue-creation-ui-action.png)
 
 ## 2. Jira Issue Updates
 
@@ -24,7 +24,7 @@ Synchronization of Incident changes with existing Jira issues was tested success
 
 The Business Rule used `JiraIncidentIntegration.updateJiraIssue()` and the `Update Jira Issue` REST method to update the corresponding Jira issue using its saved Jira Issue Key. The updated values were reflected in Jira as expected.
 
-[Incident and Jira issue updates](screenshots/incident-update.png)
+[Incident and Jira Issue Updates](../screenshots/incident-update.png)
 
 ## 3. Jira Webhook Processing
 
@@ -32,11 +32,11 @@ Incoming Jira issue-update webhooks were tested successfully. The `Jira Incident
 
 The resource successfully extracted the Jira Issue Key and status from the payload and located the corresponding ServiceNow Incident using the Jira Issue Key field.
 
-[Inbound webhook processing and integration logs](screenshots/integration-logs.png)
+[Webhook and Integration Logs](../screenshots/integration-logs.png)
 
 ## 4. Incident Status Synchronization
 
 Jira-to-ServiceNow status synchronization was tested successfully. The supported mappings worked as expected: **To Do** updated the Incident to **New**, while **In Progress** and **In Review** updated it to **In Progress**. Jira **Done** remains unmapped and does not automatically resolve the ServiceNow Incident, keeping the two systems' completion lifecycles independent.
 
-[Jira and Incident status synchronization](screenshots/incident-status-synchronization.png)
-[Incident and Jira activity logs](screenshots/incident-jira-activity-logs.png)
+[Jira Status and Incident State Update](../screenshots/incident-status-synchronization.png)
+[Incident and Jira Activity Logs](../screenshots/incident-jira-activity-logs.png)
