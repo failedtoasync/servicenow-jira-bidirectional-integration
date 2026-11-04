@@ -77,15 +77,11 @@ The outbound workflow connects ServiceNow Software Incidents with Jira Cloud by 
 
 Success and failure information is recorded in the Incident work notes, and integration errors are logged for troubleshooting.
 
-See [Outbound Integration](outbound-integration/README.md) for implementation details.
-
 ## Inbound Integration Workflow
 
 The inbound workflow processes Jira issue update webhooks to synchronize supported Jira statuses with the related ServiceNow Incident. Incoming requests are validated using HMAC-SHA256 signature verification before the payload is processed, and the Jira Issue Key is used to identify the corresponding Incident.
 
 Supported statuses are mapped to ServiceNow Incident states, while the Jira `Done` status is intentionally excluded from automatic state mapping to avoid an unsupported resolution transition.
-
-See [Inbound Integration](inbound-integration/README.md) for implementation details.
 
 ## Authentication & Webhook Security
 
@@ -97,14 +93,11 @@ The integration was tested across outbound Jira issue creation, updates to selec
 
 The verification process included testing both successful operations and failure scenarios to assess the integration’s behavior under different conditions.
 
-See [Testing](testing/README.md) for detailed testing scenarios and results.
-
 ## Repository File Index
 
 The repository is organized by integration direction and supporting resources. Each folder contains the relevant implementation documentation and supporting materials.
 
 - [**Outbound Integration**](outbound-integration/README.md) — Business Rules, UI Action, Script Include, REST Message configuration, and outbound data mapping.
 - [**Inbound Integration**](inbound-integration/README.md) — Scripted REST API, webhook processing, HMAC-SHA256 validation, and Incident status synchronization.
-- [**Screenshots**](screenshots/) — Screenshots of Jira issue creation, updates, status synchronization, and integration logs.
 - [**Testing**](testing/README.md) — Testing scenarios, validation results, and links to supporting screenshots.
 
