@@ -139,6 +139,8 @@ During subsequent updates, changes to **Short Description**, **Description**, an
 
 Outbound testing covered automatic Jira issue creation for qualifying P1 Critical and P2 High Software Incidents, manual issue creation for P3 Moderate and P4 Low Software Incidents, and synchronization of changes to the Short Description, Description, and Priority of existing linked Jira issues.
 
+See [Testing](../testing/README.md).
+
 ## Folder Index
 
 - [Business Rules](business-rules/)
